@@ -2,98 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 240 10% 5%;
-    --foreground: 260 100% 97%;
-
-    --card: 240 10% 10%;
-    --card-foreground: 260 100% 97%;
-
-    --popover: 240 10% 10%;
-    --popover-foreground: 260 100% 97%;
-
-    --primary: 267 100% 75%;
-    --primary-foreground: 240 10% 3.9%;
-
-    --secondary: 270 100% 65%;
-    --secondary-foreground: 240 10% 3.9%;
-
-    --muted: 240 10% 15%;
-    --muted-foreground: 240 5% 65%;
-
-    --accent: 280 100% 70%;
-    --accent-foreground: 240 10% 3.9%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 260 30% 30%;
-    --input: 260 30% 30%;
-    --ring: 267 100% 75%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 240 10% 10%;
-    --sidebar-foreground: 260 100% 97%;
-    --sidebar-primary: 267 100% 75%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 280 100% 70%;
-    --sidebar-accent-foreground: 240 10% 3.9%;
-    --sidebar-border: 260 30% 30%;
-    --sidebar-ring: 267 100% 75%;
-  }
+:root {
+  --neon-purple: rgb(153, 102, 255);
+  --neon-pink: rgb(255, 0, 255);
+  --neon-blue: rgb(51, 153, 255);
+  --background: #121212;
+  --card-bg: #1a1a24;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
+body {
+  background-color: var(--background);
+  color: white;
+  font-family: 'Inter', sans-serif;
 }
 
 @layer components {
   .neon-text {
-    text-shadow: 0 0 5px #9b87f5, 0 0 10px #9b87f5, 0 0 15px #9b87f5;
-  }
-  
-  .neon-border {
-    @apply border border-neon-purple shadow-neon-purple;
-  }
-  
-  .neo-card {
-    @apply bg-card rounded-xl border border-neon-purple shadow-neon-purple;
-    backdrop-filter: blur(10px);
+    color: white;
+    text-shadow: 0 0 5px var(--neon-purple), 0 0 15px var(--neon-purple);
   }
   
   .neon-button {
-    @apply bg-transparent border border-neon-purple text-white px-6 py-2 rounded-md 
-    shadow-neon-purple transition-all duration-300
-    hover:bg-neon-purple/20 hover:shadow-neon-purple;
+    @apply px-6 py-2 rounded-md font-medium text-white border border-purple-600 shadow-sm transition-all duration-300;
+    background-color: rgba(153, 102, 255, 0.1);
+    box-shadow: 0 0 10px rgba(153, 102, 255, 0.3);
+  }
+  
+  .neon-button:hover {
+    background-color: rgba(153, 102, 255, 0.2);
+    box-shadow: 0 0 15px rgba(153, 102, 255, 0.5);
   }
   
   .neon-nav-link {
-    @apply relative px-4 py-2 text-white transition-colors duration-300 
-    hover:text-neon-purple;
+    @apply text-white/80 hover:text-white transition-all duration-300 relative;
   }
   
   .neon-nav-link::after {
-    @apply content-[''] absolute left-0 bottom-0 w-0 h-[2px] bg-neon-purple 
-    transition-all duration-300 ease-in-out opacity-0;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--neon-purple);
+    box-shadow: 0 0 8px var(--neon-purple);
+    transition: width 0.3s;
   }
   
-  .neon-nav-link:hover::after {
-    @apply w-full opacity-100 shadow-neon-purple;
-  }
-  
-  .neon-nav-link.active {
-    @apply text-neon-purple;
-  }
-  
+  .neon-nav-link:hover::after,
   .neon-nav-link.active::after {
-    @apply w-full opacity-100 shadow-neon-purple;
+    width: 100%;
+  }
+  
+  .neo-card {
+    background-color: rgba(26, 26, 36, 0.6);
+    border-radius: 16px;
+    border: 1px solid rgba(153, 102, 255, 0.1);
+    box-shadow: 0 0 15px rgba(153, 102, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .neo-card:hover {
+    box-shadow: 0 0 20px rgba(153, 102, 255, 0.2);
+    transform: translateY(-5px);
+  }
+
+  .animate-pulse-neon {
+    animation: pulse-neon 2s infinite;
+  }
+
+  @keyframes pulse-neon {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(153, 102, 255, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(153, 102, 255, 0.6);
+    }
   }
 }

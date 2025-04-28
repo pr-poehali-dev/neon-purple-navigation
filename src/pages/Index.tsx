@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -14,40 +13,28 @@ const Index = () => {
       <section className="container mx-auto px-4 py-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="w-full md:w-1/2">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-5xl md:text-6xl font-bold mb-6 neon-text"
+            <h1 
+              className={`text-5xl md:text-6xl font-bold mb-6 neon-text transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             >
               Неоновый Дизайн
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-white/80 mb-8"
+            </h1>
+            <p
+              className={`text-xl text-white/80 mb-8 transition-all duration-500 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             >
               Современные веб-решения с уникальным неоновым стилем, который выделит ваш проект среди конкурентов.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap gap-4"
+            </p>
+            <div
+              className={`flex flex-wrap gap-4 transition-all duration-500 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             >
               <button className="neon-button">Узнать больше</button>
-              <button className="neon-button bg-neon-purple/20">Наши работы</button>
-            </motion.div>
+              <button className="neon-button bg-purple-900/20">Наши работы</button>
+            </div>
           </div>
           <div className="w-full md:w-1/2">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7 }}
-              className="relative"
+            <div
+              className={`relative transition-all duration-700 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
             >
-              <div className="w-full h-80 md:h-96 rounded-2xl bg-gradient-to-r from-neon-purple/30 to-neon-pink/30 p-1">
+              <div className="w-full h-80 md:h-96 rounded-2xl bg-gradient-to-r from-purple-800/30 to-pink-600/30 p-1">
                 <div className="w-full h-full rounded-xl overflow-hidden flex items-center justify-center bg-[#1a1a24]">
                   <img 
                     src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" 
@@ -56,9 +43,9 @@ const Index = () => {
                   />
                 </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-neon-purple/20 rounded-full filter blur-xl"></div>
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-neon-pink/20 rounded-full filter blur-xl"></div>
-            </motion.div>
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-purple-600/20 rounded-full filter blur-xl"></div>
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-pink-600/20 rounded-full filter blur-xl"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -84,17 +71,15 @@ const Index = () => {
               icon: "📱"
             }
           ].map((feature, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              className="neo-card p-6"
+              className={`neo-card p-6 transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+              style={{ transitionDelay: `${200 + index * 100}ms` }}
             >
               <div className="text-4xl mb-4">{feature.icon}</div>
               <h3 className="text-xl font-semibold mb-3 text-white">{feature.title}</h3>
               <p className="text-white/70">{feature.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
