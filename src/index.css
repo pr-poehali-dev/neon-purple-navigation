@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,7 +24,7 @@ body {
   }
   
   .neon-button {
-    @apply px-6 py-2 rounded-md font-medium text-white border border-purple-600 shadow-sm transition-all duration-300;
+    @apply px-6 py-2 rounded-md font-medium text-white border border-purple-600/70 shadow-sm transition-all duration-300;
     background-color: rgba(153, 102, 255, 0.1);
     box-shadow: 0 0 10px rgba(153, 102, 255, 0.3);
   }
@@ -31,6 +32,19 @@ body {
   .neon-button:hover {
     background-color: rgba(153, 102, 255, 0.2);
     box-shadow: 0 0 15px rgba(153, 102, 255, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  .neon-button-alt {
+    @apply px-6 py-2 rounded-md font-medium text-white border border-pink-600/70 shadow-sm transition-all duration-300;
+    background-color: rgba(255, 0, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+  }
+  
+  .neon-button-alt:hover {
+    background-color: rgba(255, 0, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    transform: translateY(-2px);
   }
   
   .neon-nav-link {
@@ -52,6 +66,22 @@ body {
   .neon-nav-link:hover::after,
   .neon-nav-link.active::after {
     width: 100%;
+  }
+  
+  .neon-link {
+    @apply text-purple-400 hover:text-purple-300 transition-all duration-300 relative inline-flex items-center;
+  }
+  
+  .neon-link::after {
+    content: '→';
+    opacity: 0;
+    margin-left: 0;
+    transition: all 0.3s;
+  }
+  
+  .neon-link:hover::after {
+    opacity: 1;
+    margin-left: 5px;
   }
   
   .neo-card {

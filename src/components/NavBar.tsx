@@ -1,3 +1,4 @@
+
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
@@ -22,7 +23,7 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-neon-purple shadow-neon-purple">
+    <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-neon-purple/30 shadow-sm shadow-neon-purple/20">
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">

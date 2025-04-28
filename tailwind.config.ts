@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -26,6 +27,20 @@ const config: Config = {
           800: "#5920d2",
           900: "#4a1cae",
           950: "#2c0d73",
+        },
+        pink: {
+          DEFAULT: "#ff00ff",
+          50: "#fdf2ff",
+          100: "#fae6ff",
+          200: "#f3cdff",
+          300: "#eba4ff",
+          400: "#e066ff",
+          500: "#d633ff",
+          600: "#cc00ff",
+          700: "#a700cc",
+          800: "#8c00a7",
+          900: "#730087",
+          950: "#4a0057",
         },
       },
     },
